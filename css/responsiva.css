@@ -1,0 +1,25 @@
+@media screen and (max-width: 480px) {
+  .botao-log {
+    width: auto;
+  }
+
+  .button {
+    display: inline-block;
+    padding: auto;
+    font-size: 8px;
+    border-radius: 4px;
+    border: solid;
+    border-width: 1px;
+    cursor: pointer;
+  }
+
+  .mapa-conteudo {
+    width: auto;
+    margin: 0 auto;
+    box-shadow: 8px 8px 30px #FFFFFF;
+  }
+
+  .botoes button {
+    margin-left: -240px;
+  }
+}

@@ -40,6 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="\css\reset.css">
     <link rel="stylesheet" href="\css\login.css">
+    <link rel="stylesheet" href="\css\responsiva.css">
     <title>Tela de Login:</title>
 </head>
 <body>
@@ -59,11 +60,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
          <div class="botoes">
                 <input type="submit" value="Entrar">
-                <a id="under" href="index.html"><button type="button" name="voltar">Voltar</button></a>
+                <a id="back" href="index.html"><button type="button" name="voltar">Voltar</button></a>
             </div></form>
-
+</div>
       <div id="footer"><p id="copy">&copy; vtR Project's </p></div>
 </body>
+
 </html>
 
 <?php
