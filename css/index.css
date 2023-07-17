@@ -56,6 +56,18 @@
       font-family: Arial, sans-serif;
     }
 
+    .mapa-conteudo {
+  width: 940px;
+  margin: 0 auto;
+  box-shadow: 8px 8px 30px #FFFFFF;
+}
+
+.mapa p {
+  margin: 0 0 2em;
+  text-align: center;
+}
+
+
 
      #footer {
     width: 100%;
