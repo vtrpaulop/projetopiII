@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="\css\reset.css">
     <link rel="stylesheet" href="\css\login.css">
-    <title>Tela de Login</title>
+    <title>Tela de Login:</title>
 </head>
 <body>
     <div id="header"><p class="titletop">  </p></div>
