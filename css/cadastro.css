@@ -1,0 +1,80 @@
+
+    h2 {
+      font-size: 30px;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+      margin: 10px 20px;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+    }
+    form {
+      position: relative;
+      display: inline-block;
+      margin: 20px auto;
+      width: 300px;
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 5px;
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+      width: 150px;
+      height: 15px;
+
+    }
+    input[type="text"],
+    input[type="password"] {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+
+    }
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: black;
+      font-weight: bold;
+      padding: 10px 15px;
+      border width: 1px, solid;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    .cad {
+      width: 100%;
+      background-color: white ;
+    }
+
+    #cad:hover{
+      background-color: #DCDCDC ;
+    }
+
+   input:hover{
+      
+      background-color: #00FF7F ;
+      transition: 0.1s;
+      font-size:16px;
+    }
+
+    .error {
+      color: #ff0000;
+      margin-bottom: 10px;
+    }
+ 
+ #botoes {
+  color: black;
+  font-weight: bold;
+  margin: 10px 20px;
+  border width: 1px, solid;
+
+ }
+
+#voltar:hover{
+  background-color: #CD5C5C;
+  
+
+}
+
+

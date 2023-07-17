@@ -1,0 +1,47 @@
+h2 {
+font-size: 30px;
+font-family: Arial, sans-serif;
+margin: 10px 20px;
+}
+
+tr th{
+	border: 2px solid;
+	font-size: 20px;
+	
+}
+
+td{
+	border: 2px solid;
+}
+
+table {
+	border: 2px solid;
+	border-color: black;
+	margin: 20px 20px;
+}
+
+    input[type="text"] {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+    }
+    input[type="submit"] {
+      background-color: #4CAF50;
+      color: black;
+      padding: 10px 15px;
+      border: 1px, solid;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      color: black;  
+      margin: 10px 20px;
+
+  }
+
+ input:hover{
+      
+      background-color: #CD5C5C;
+      transition: 0.1s;
+      font-size:16px;
+    }
+

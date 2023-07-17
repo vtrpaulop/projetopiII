@@ -1,0 +1,76 @@
+    #header {
+    width: 100%;
+    height: 150px;
+    background-color:#DCDCDC;
+
+  }
+
+  h2 {
+      font-size: 30px;
+      font-weight: bold;
+      font-family: Arial, sans-serif;
+     }
+
+    .botao-log{
+    display:block;
+    position: relative;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    text-align: right;
+    padding: 70px; 
+    }
+
+    .body {
+      margin: 20px 20px ;
+      font-family: Arial, sans-serif;
+    }
+
+    input {
+      background-color: #4CAF50;
+      color: black;
+      font-weight: bold;
+      padding: 10px 15px;
+      border: solid;
+      border-width: 1px;
+      border-radius: 4px;
+      cursor: pointer;
+      
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: black;
+      font-weight: bold;
+      padding: 10px 15px;
+      border: solid;
+      border-width: 1px;
+      border-radius: 4px;
+      cursor: pointer;
+      margin: 10px 20px;
+   }
+
+   button:hover{
+      background-color: #00FF7F ;
+      transition: 0.1s;
+      font-size:16px;
+      font-style: black;
+    }
+
+   input:hover{
+      background-color: #CD5C5C ;
+      transition: 0.1s;
+      font-size:16px;
+    }
+
+    #footer {
+    width: 100%;
+    height: 150px;
+    background-color:#DCDCDC;
+    
+  }
+
+  #copy{
+    text-align: center;
+    padding: 75px;
+    font-weight: bold;
+  }
