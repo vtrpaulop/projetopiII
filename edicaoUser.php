@@ -65,17 +65,17 @@ if (isset($_GET['id'])) {
   <h2>Edição de Usuário</h2>
   <form id="userForm" method="post" action="<?php echo $_SERVER['PHP_SELF'] . '?id=' . $id; ?>">
     <label for="id">Id:</label>
-    <input type="text" id="cad"id="cad"id="cad" name="id" value="<?php echo $id; ?>" readonly>
+    <input type="text" id="cad" name="id" value="<?php echo $id; ?>" readonly>
     <label for="username">Usuário:</label>
-    <input type="text" id="cad"id="cad" name="username" value="<?php echo $username; ?>" autofocus required>
+    <input type="text" id="cad"name="username" value="<?php echo $username; ?>" autofocus required>
     <label for="nome">Nome:</label>
     <input type="text" id="cad" name="nome" value="<?php echo $nome; ?>" required>
     <label for="sobrenome">Sobrenome:</label>
-    <input type="text" id="cad"id="cad"id="cad"id="cad" name="sobrenome" value="<?php echo $sobrenome; ?>" required>
+    <input type="text" id="cad" name="sobrenome" value="<?php echo $sobrenome; ?>" required>
     <label for="idade">Idade:</label>
-    <input type="text" id="cad"id="cad"id="cad" name="idade" value="<?php echo $idade; ?>" required>
+    <input type="text" id="cad" name="idade" value="<?php echo $idade; ?>" required>
     <label for="telefone">Telefone:</label>
-    <input type="text" id="cad"id="cad" name="telefone" value="<?php echo $telefone; ?>" required>
+    <input type="text" id="cad" name="telefone" value="<?php echo $telefone; ?>" required>
     <label for="email">Email:</label>
     <input type="text" id="cad" name="email" value="<?php echo $email; ?>" required>
     <label for="sexo">Escolha seu sexo:</label><br>
