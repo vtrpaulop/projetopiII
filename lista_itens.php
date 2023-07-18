@@ -54,7 +54,7 @@ require_once 'autentica.php';
         echo "</tr>";
       }
     } else {
-      echo "<tr><td colspan='2'>Nenhum item cadastrado.</td></tr>";
+      echo "<tr><td colspan='3'>Nenhum item cadastrado.</td></tr>";
     }
     ?>
   </table>

@@ -52,7 +52,7 @@ require_once 'autentica.php';
         echo "</tr>";
       }
     } else {
-      echo "<tr><td colspan='2'>Nenhum usuário cadastrado.</td></tr>";
+      echo "<tr><td colspan='3'>Nenhum usuário cadastrado.</td></tr>";
     }
     ?>
   </table>  
