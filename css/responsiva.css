@@ -6,8 +6,6 @@
   .button {
     display: inline-block;
     padding: auto;
-    font-size: 8px;
-    border-radius: 4px;
     border: solid;
     border-width: 1px;
     cursor: pointer;
@@ -19,7 +17,4 @@
     box-shadow: 8px 8px 30px #FFFFFF;
   }
 
-  .botoes button {
-    margin-left: -240px;
-  }
 }
