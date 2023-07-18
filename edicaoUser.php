@@ -67,9 +67,9 @@ if (isset($_GET['id'])) {
     <label for="id">Id:</label>
     <input type="text" id="cad" name="id" value="<?php echo $id; ?>" readonly>
     <label for="username">Usuário:</label>
-    <input type="text" id="cad"name="username" value="<?php echo $username; ?>" autofocus required>
+    <input type="text" id="cad"name="username" value="<?php echo $username; ?>" readonly>
     <label for="nome">Nome:</label>
-    <input type="text" id="cad" name="nome" value="<?php echo $nome; ?>" required>
+    <input type="text" id="cad" name="nome" value="<?php echo $nome; ?>" autofocus required>
     <label for="sobrenome">Sobrenome:</label>
     <input type="text" id="cad" name="sobrenome" value="<?php echo $sobrenome; ?>" required>
     <label for="idade">Idade:</label>
