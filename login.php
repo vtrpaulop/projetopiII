@@ -45,6 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Tela de Login:</title>
 </head>
 <body>
+    <img id="logo" src="img\bee.png">
     <div id="header"><p class="titletop">  </p></div>
   
 
@@ -63,6 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="submit" value="Entrar">
                 <a id="back" href="index.html"><button type="button" name="voltar">Voltar</button></a>
             </div></form>
+            <a id="id" href="esqueciSenha.html"><button type="button" name="esqueci">Esqueci minha senha</button></a>
 </div>
       <div id="footer"><p id="copy">&copy; vtR Project's </p></div>
 </body>
