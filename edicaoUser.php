@@ -19,7 +19,7 @@ if (isset($_GET['id'])) {
     $username = $row['username'];
     $nome = $row['nome'];
     $sobrenome = $row['sobrenome'];
-    $idade = $row['idade'];
+    $dnascimento = $row['dnascimento'];
     $telefone = $row['telefone'];
     $email = $row['email'];
     $sexo = $row['sexo'];
@@ -32,13 +32,13 @@ if (isset($_GET['id'])) {
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = $_POST["nome"];
     $sobrenome = $_POST["sobrenome"];
-    $idade = $_POST["idade"];
+    $dnascimento = $_POST["dnascimento"];
     $telefone = $_POST["telefone"];
     $email = $_POST["email"];
     $sexo = $_POST["sexo"];
 
     // Atualiza as informações do usuário no banco de dados
-    $query = "UPDATE users SET nome='$nome', sobrenome='$sobrenome', idade='$idade', telefone='$telefone', email='$email', sexo='$sexo' WHERE id=$escapedId";
+    $query = "UPDATE users SET nome='$nome', sobrenome='$sobrenome', dnascimento='$dnascimento', telefone='$telefone', email='$email', sexo='$sexo' WHERE id=$escapedId";
     if ($conn->query($query) === TRUE) {
       echo "<p>Informações atualizadas com sucesso.</p>";
     } else {
@@ -72,8 +72,8 @@ if (isset($_GET['id'])) {
     <input type="text" id="cad" name="nome" value="<?php echo $nome; ?>" autofocus required>
     <label for="sobrenome">Sobrenome:</label>
     <input type="text" id="cad" name="sobrenome" value="<?php echo $sobrenome; ?>" required>
-    <label for="idade">Idade:</label>
-    <input type="text" id="cad" name="idade" value="<?php echo $idade; ?>" required>
+    <label for="dnascimento">Idade:</label>
+    <input type="date" id="cad" name="dnascimento" value="<?php echo $dnascimento; ?>" required>
     <label for="telefone">Telefone:</label>
     <input type="text" id="cad" name="telefone" value="<?php echo $telefone; ?>" required>
     <label for="email">Email:</label>

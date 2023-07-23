@@ -19,7 +19,7 @@ require_once 'autentica.php';
     $password = $_POST["password"];
     $nome = $_POST["nome"];
     $sobrenome = $_POST["sobrenome"];
-    $idade = $_POST["idade"];
+    $dnascimento = $_POST["dnascimento"];
     $telefone = $_POST["telefone"];
     $email = $_POST["email"];
     $sexo = $_POST["sexo"];
@@ -31,7 +31,7 @@ require_once 'autentica.php';
       echo "<p class='error'>Usuário já cadastrado.</p>";
     } else {
 // Insere o novo usuário no banco de dados
-$query = "INSERT INTO users (username, password, nome, sobrenome, idade, telefone, email, sexo) VALUES ('$username', '$password', '$nome', '$sobrenome', '$idade', '$telefone', '$email', '$sexo')";
+$query = "INSERT INTO users (username, password, nome, sobrenome, dnascimento, telefone, email, sexo) VALUES ('$username', '$password', '$nome', '$sobrenome', '$dnascimento', '$telefone', '$email', '$sexo')";
 if ($conn->query($query) === TRUE) {
   echo "<p>Usuário cadastrado com sucesso.</p>";
 } else {
@@ -63,8 +63,8 @@ if ($conn->query($query) === TRUE) {
     <input type="text" id="cad" name="nome" placeholder="Informe seu nome"required>
     <label for="sobrenome">Sobrenome:</label>
     <input type="text" id="cad" name="sobrenome" placeholder="Informe seu sobrenome"required>
-    <label for="idade">Idade:</label>
-    <input type="text" id="cad" name="idade" placeholder="Digite sua idade" required>
+    <label for="dnascimento">Idade:</label>
+    <input type="date" id="cad" name="dnascimento"  required>
     <label for="telefone">Telefone:</label>
     <input type="text" id="cad" name="telefone" placeholder="(XX) X XXXX-XXXX"required>
     <label for="email">Email:</label>
