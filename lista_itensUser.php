@@ -3,18 +3,7 @@
 require_once 'autentica.php';
 
 
-// Processamento da exclusão de items
-  if (isset($_GET["action"]) && $_GET["action"] == "delete" && isset($_GET["nome"])) {
-    $nome = $_GET["nome"];
 
-    // Deleta o item do banco de dados
-    $query = "DELETE FROM itens WHERE nome = '$nome'";
-    if ($conn->query($query) === TRUE) {
-      echo "<p>Item excluído com sucesso.</p>";
-    } else {
-      echo "<p class='error'>Erro ao excluir Item: " . $conn->error . "</p>";
-    }
-  }
   ?>
 
 <!DOCTYPE html>
@@ -48,8 +37,7 @@ require_once 'autentica.php';
         echo "<td>" . $row["id"] ."</td>";
         echo "<td>" . $row["nome"] . "</td>" ;
         echo "<td>";
-        echo "<a href='edicaoItem.php?id=" . $row['id'] . "'> Editar</a> | ";
-        echo "<a href='" . $_SERVER['PHP_SELF'] . "?action=delete&nome=" . $row["nome"] . "' onclick='return confirm(\"Deseja realmente excluir o item?\")'>Excluir</a>";
+        
         echo "</td>";
         echo "</tr>";
       }
@@ -59,7 +47,7 @@ require_once 'autentica.php';
     ?>
   </table>
 
-<a href="cadastroItem.php"><input id="voltar"  type="submit" name="voltar" value="Voltar" ></a>
+<a href="painelUser.html"><input id="voltar"  type="submit" name="voltar" value="Voltar" ></a>
   
 </body>
 </html>
