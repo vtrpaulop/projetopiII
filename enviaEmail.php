@@ -60,7 +60,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 $mail->Username = "projetopiunivesp2023@gmail.com"; // Seu email do Gmail
                 $mail->Password = "projetopi"; // Sua senha do Gmail
                 $mail->SMTPSecure = 'tls';               
-                $mail->Port = 465;
+                $mail->Port = 587;
                 $mail->CharSet = 'utf-8';
                 $mail->Mailer = "smtp"; 
                 
