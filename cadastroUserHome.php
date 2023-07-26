@@ -11,7 +11,7 @@
   <h2>Cadastro de Usuário</h2>
   <?php
 //Herda do banco
-require_once 'autentica.php';
+require_once '.\autentica.php';
 
   // Processamento do formulário de cadastro
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -78,8 +78,7 @@ if ($conn->query($query) === TRUE) {
 
   <br>
   <div id="botoes">
-<a href="lista_users.php"><input class="botoes" type="submit" value="Listar Usuários"></a>
-<a href="painel.html"><input id="voltar"  type="submit" name="voltar" value="Voltar" ></a>
+<a href="index.html"><input id="voltar"  type="submit" name="voltar" value="Voltar" ></a>
   </div>
 </body>
 </html>
