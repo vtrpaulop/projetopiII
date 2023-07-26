@@ -58,6 +58,11 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/autentica.php';
     }
 
     $conn->close();
+
     ?>
+
+<a href="../index.html">Voltar</a>
+
+
 </body>
 </html>
