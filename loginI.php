@@ -5,18 +5,17 @@ require_once 'autentica.php';
 // Verificando se o formulário de login foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtendo os valores enviados pelo formulário
-    $username = strtoupper($_POST["username"]);
-    $password = strtoupper($_POST["password"]);
+    $username = ($_POST["username"]);
+    $password = ($_POST["password"]);
 
 
     // Convertendo o nome de usuário e senha para letras maiúsculas
-    $username = strtoupper($username);
-    $password = strtoupper($password);
+    $username = ($username);
+    $password = ($password);
 
 
     //Consulta SQL para verificar se o usuário e a senha estão corretos
-    $sql = "SELECT * FROM users WHERE UPPER(username) = '$username' AND password = '$password'";
-    
+    $sql = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
     $resultado = $conn->query($sql);
 
 
@@ -64,9 +63,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="submit" value="Entrar">
                 <a id="back" href="index.html"><button type="button" name="voltar">Voltar</button></a>
             </div></form>
-            <a id="id" href="esqueciSenha.html"><button type="button" name="esqueci">Esqueci minha senha</button></a>
+            <a id="id" href="admin\esqueciSenha.html"><button type="button" name="esqueci">Esqueci minha senha</button></a>
 </div>
-      <div id="footer"><p id="copy">&copy; vtR Project's </p></div>
+      <div id="footer"><p id="copy">&copy; Projeto PI II  </p></div>
 </body>
 
 </html>
