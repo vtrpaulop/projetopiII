@@ -38,14 +38,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
      <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="\css\reset.css">    
-    <link rel="stylesheet" href="\css\login.css">
-    <link rel="stylesheet" href="\css\responsiva.css">
+    <link rel="stylesheet" href="..\css\reset.css">    
+    <link rel="stylesheet" href="..\css\login.css">
+    <link rel="stylesheet" href="..\css\responsiva.css">
     
     <title>Tela de Login:</title>
 </head>
 <body>
-    <img id="logo" src="img\bee.png">
+    <img id="logo" src="..\img\bee.png">
     <div id="header"><p class="titletop">  </p></div>
   
 
@@ -62,11 +62,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
          <div class="botoes">
                 <input type="submit" value="Entrar">
-                <a id="back" href="index.html"><button type="button" name="voltar">Voltar</button></a>
+                <a id="back" href="../../index.html"><button type="button" name="voltar">Voltar</button></a>
             </div></form>
             <a id="id" href="esqueciSenha.html"><button type="button" name="esqueci">Esqueci minha senha</button></a>
 </div>
-      <div id="footer"><p id="copy">&copy; vtR Project's </p></div>
+      <div id="footer"><p id="copy">&copy; Projeto PI II  </p></div>
 </body>
 
 </html>
