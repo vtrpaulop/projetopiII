@@ -1,0 +1,22 @@
+.post {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    width: auto;
+  }
+
+  .post:hover{
+  	background-color: #32CD32;
+  }
+
+  .post p {
+    margin: 5px 0;
+  }
+
+  .post a {
+    color: red;
+    text-decoration: none;
+  }
+
+
