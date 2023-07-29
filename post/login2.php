@@ -11,9 +11,17 @@ if (isset($_SESSION['login_error'])) {
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="\css\reset.css">    
+    <link rel="stylesheet" href="\css\index.css">
+    <link rel="stylesheet" href="\css\responsiva.css">
     <title>Login</title>
 </head>
 <body>
+    <div id="header">
+    <img id="logo" src="..\img\bee.png">
+    <p class="titletop"> ESTE É O CABEÇALHO </p>
     <h1>Login</h1>
     <form action="autenticado.php" method="post">
         <label for="username">Usuário:</label>
@@ -24,5 +32,7 @@ if (isset($_SESSION['login_error'])) {
 
         <input type="submit" value="Entrar">
     </form>
+    <button><a href="novidades.php">Voltar</a></button>
+    <div id="footer"><p id="copy">&copy; Projeto PI II  </p></div>
 </body>
 </html>
