@@ -3,12 +3,40 @@
     width: auto;
   }
 
+ .menu {
+  width: 330px;
+     margin: 25px 20px 30px 0px;
+      display: inline-block;    
+      float: right;     
+      }
+
+     #logo {
+  width: 75px;
+  display: inline-block;
+  margin: 8px 8px;
+  position: absolute; 
+ }
+
+
+ .titletop {
+    width: auto;
+    font-size: 15px;
+    text-align: center;
+    padding: 30px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+
+  }
+
+
   .button {
     display: inline-block;
     padding: auto;
     border: solid;
-    border-width: 1px;
+    border-width: 0px;
     cursor: pointer;
+    font-size: 10px;
+    font-weight: bold;
   }
 
   .mapa-conteudo {
