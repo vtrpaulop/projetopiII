@@ -8,16 +8,16 @@ if (isset($_GET['id'])) {
   // Escapa o ID para evitar ataques de SQL injection
   $escapedId = $conn->real_escape_string($id);
 
-  // Busca as informações do ponto pelo ID
-  $query = "SELECT * FROM pontos WHERE id = $escapedId";
+  // Busca as informações do ponto pelo ID, incluindo o nome e o sobrenome do usuário
+  $query = "SELECT p.id, p.user_id, u.nome, u.sobrenome, p.timestamp FROM pontos p INNER JOIN users u ON p.user_id = u.id WHERE p.id = $escapedId";
   $result = $conn->query($query);
 
   // Verifica se a consulta foi bem-sucedida
   if ($result !== false && $result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $user_id = $row['user_id'];
+    $nomeCompleto = $row['nome'] . ' ' . $row['sobrenome'];
     $timestamp = $row['timestamp'];
-    
   } else {
     echo "<p class='error'>Ponto não encontrado.</p>";
     exit();
@@ -26,6 +26,7 @@ if (isset($_GET['id'])) {
   // Processamento do formulário de edição
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $user_id = $_POST["user_id"];
+    $nomeCompleto = $_POST["nomeCompleto"];
     $timestamp = $_POST["timestamp"];
 
     // Atualiza as informações do ponto no banco de dados
@@ -36,7 +37,6 @@ if (isset($_GET['id'])) {
       echo "<p class='error'>Erro ao atualizar informações: " . $conn->error . "</p>";
     }
   }
-
 } else {
   echo "<p class='error'>ID do ponto não fornecido.</p>";
   exit();
@@ -57,8 +57,10 @@ if (isset($_GET['id'])) {
     <label for="id">Id:</label>
     <input type="text" id="cad" name="id" value="<?php echo $id; ?>" readonly>
     <label for="user_id">ID do Usuário:</label>
-    <input type="text" id="cad" name="user_id" value="<?php echo $user_id; ?>" required>
-    <label for="timestamp">Timestamp:</label>
+    <input type="text" id="cad" name="user_id" value="<?php echo $user_id; ?>" readonly>
+    <label for="nomeCompleto">Nome do Usuário:</label>
+    <input type="text" id="cad" name="nomeCompleto" value="<?php echo $nomeCompleto; ?>" readonly>
+    <label for="timestamp">Registro:</label>
     <input type="text" id="cad" name="timestamp" value="<?php echo $timestamp; ?>" required>
     
     <input type="submit" value="Salvar">
