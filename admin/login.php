@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <title>Tela de Login:</title>
 </head>
 <body>
-    <img id="logo" src="..\img\bee.png">
+    <img class="logo" src="..\img\logo.png">
     <div id="header"><p class="titletop">  </p></div>
   
 

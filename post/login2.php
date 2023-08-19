@@ -20,7 +20,7 @@ if (isset($_SESSION['login_error'])) {
 </head>
 <body>
     <div id="header">
-    <img id="logo" src="..\img\bee.png">
+    <img class="logo" src="..\img\logo.png">
     <p class="titletop"> ESTE É O CABEÇALHO </p>
     <h1>Login</h1>
     <form action="autenticado.php" method="post">

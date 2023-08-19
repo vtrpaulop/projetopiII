@@ -14,13 +14,13 @@
 <body>
 
     <div id="header">
-    <img id="logo" src="..\img\bee.png">
+    <img class="logo" src="..\img\logo.png">
     <p class="titletop"> ESTE É O CABEÇALHO </p>
   <div class="menu">
-    <button class="button"><a href="loginI.php" class="button">Entrar</a></button>
-     <button class="button"><a href="contato.html" class="button">Contato</a></button>
+    <button class="button"><a href="..\loginI.php" class="button">Entrar</a></button>
+     <button class="button"><a href="..\contato.html" class="button">Contato</a></button>
      <button class="button"><a href="post\novidades.php" class="button">Novidades</a></button>
-     <button class="button"><a href="cadastroUserHome.php" class="button">Cadastrar</a></button>
+     <button class="button"><a href="..\cadastroUserHome.php" class="button">Cadastrar</a></button>
      <button class="button"><a href="" class="button">Sobre</a></button>
   </div>
 

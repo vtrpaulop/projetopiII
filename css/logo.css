@@ -1,0 +1,11 @@
+ .logo {
+  width: 130px;
+  display: inline-block;
+  margin: 10px 50px;
+  position: absolute; 
+ }
+
+ .logo:hover {
+  width: 140px;
+  transition: 0.4s;
+ }

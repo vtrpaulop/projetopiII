@@ -1,17 +1,14 @@
 <?php
+session_start();
 //Herda do banco
 require_once 'autentica.php';
+
 
 // Verificando se o formulário de login foi enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Obtendo os valores enviados pelo formulário
     $username = ($_POST["username"]);
     $password = ($_POST["password"]);
-
-
-    // Convertendo o nome de usuário e senha para letras maiúsculas
-    $username = ($username);
-    $password = ($password);
 
 
     //Consulta SQL para verificar se o usuário e a senha estão corretos
@@ -25,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Login realizado com sucesso!";        
 
         // Aqui você pode fazer o redirecionamento usando a função header()
-        header("Location: painelUser.html");
+        header("Location: painelUser.php");
     } else {
         // Login inválido
         echo "Usuário ou senha incorretos.";
@@ -37,22 +34,27 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <html>
 <head>
      <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="\css\reset.css">    
-    <link rel="stylesheet" href="\css\login.css">
-    <link rel="stylesheet" href="\css\responsiva.css">
+    <link rel="stylesheet" href="..\css\reset.css">    
+    <link rel="stylesheet" href="..\css\login.css">
+    <link rel="stylesheet" href="..\css\index.css">
+    <link rel="stylesheet" href="..\css\responsiva.css">
     
     <title>Tela de Login:</title>
 </head>
 <body>
-    <img id="logo" src="img\bee.png">
-    <div id="header"><p class="titletop">  </p></div>
-  
+     
+    <div id="header">
+    <img class="logo" src="..\img\logo.png">
+    <p class="titletop"> AAA </p>
+  <div class="menu">   
+  </div>  
+  </div>
 
     <div id="body">
     <h1>Tela de Login</h1><br>
 
 
-    <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    <form method="POST" action="autenticadoU.php">
         <label for="username">Usuário:</label>
         <input class="cad" type="text" name="username" placeholder="Digite seu nome de usuário" required><br><br>
 
@@ -70,7 +72,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 </html>
 
-<?php
 
-$conn->close();
-?>
