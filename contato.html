@@ -3,37 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width">
+    <link rel="shortcut icon" href="img\logo3.png">
     <link rel="stylesheet" href="css\reset.css">    
     <link rel="stylesheet" href="css\index.css">
+    <link rel="stylesheet" href="css\contato.css">
     <link rel="stylesheet" href="css\responsiva.css">
     <title>Página de Contato</title>
 </head>
 <body>
     <div id="header">
-    <img class="logo" src="img\logo.png">
-    <p class="titletop"> ESTE É O CABEÇALHO </p>
+    <img class="logo" src="img\logo3.png">
+    <p class="titletop">RH Soluções - Projeto PI II </p>
   <div class="menu">
-    <button class="button"><a href="..\loginI.php" class="button">Entrar</a></button>
-     <button class="button"><a href="..\contato.html" class="button">Contato</a></button>
+    <button class="button"><a href="loginU.php" class="button">Entrar</a></button>
+     <button class="button"><a href="contato.html" class="button">Contato</a></button>
      <button class="button"><a href="..\post\novidades.php" class="button">Novidades</a></button>
-     <button class="button"><a href="..\cadastroUserHome.php" class="button">Cadastrar</a></button>
-     <button class="button"><a href="" class="button">Sobre</a></button>
+     <button class="button"><a href="cadastroUserHome.php" class="button">Cadastrar</a></button>
+     <button class="button"><a href="sobre.html" class="button">Sobre</a></button>
   </div>
+  <div id="contato">
     <h1>Entre em Contato</h1>
     <form action="enviar_contato.php" method="post">
         <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required><br>
+        <input type="text" id="nome" name="nome" required><br><br>
 
         <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" required><br>
+        <input type="email" id="email" name="email" required><br><br>
 
         <label for="mensagem">Mensagem:</label><br>
         <textarea id="mensagem" name="mensagem" rows="4" cols="50" required></textarea><br>
 
         <input type="submit" value="Enviar">
+        <a id="back" href="index.html"><button type="button" name="voltar">Voltar</button></a>
     </form>
-<a id="back" href="index.html"><button type="button" name="voltar">Voltar</button></a>
 
+</div>
 <div id="footer"><p id="copy">&copy; Projeto PI II </p></div>
 </div>
 </body>
