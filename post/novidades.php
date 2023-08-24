@@ -14,17 +14,11 @@
 <body>
 
     <div id="header">
-    <img class="logo" src="..\img\logo.png">
-    <p class="titletop"> ESTE É O CABEÇALHO </p>
-  <div class="menu">
-    <button class="button"><a href="..\loginI.php" class="button">Entrar</a></button>
-     <button class="button"><a href="..\contato.html" class="button">Contato</a></button>
-     <button class="button"><a href="post\novidades.php" class="button">Novidades</a></button>
-     <button class="button"><a href="..\cadastroUserHome.php" class="button">Cadastrar</a></button>
-     <button class="button"><a href="" class="button">Sobre</a></button>
-  </div>
+    <img class="logo" src="..\img\logo3.png">
+    <p class="titletop"> RH Soluções - Projeto PI II </p>
+  
 
-
+<div id="nov">
     <h1>Publicações e Interações</h1>
 
     <?php
@@ -61,7 +55,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/autentica.php';
     echo '<div class="post">';
     echo '<p><strong>Usuário:</strong> ' . $row['username'] . '</p>';
     echo '<p><strong>Comentário:</strong> ' . $row['content'] . '</p>';
-    echo '<p><strong>Criado em:</strong> ' . $row['created_at'] . '</p>';
+    echo '<p><strong>Criado em:</strong> ' . date('d/m/Y H:i:s', strtotime($row['created_at'])) . '</p>';
     // Botão Excluir
     // echo '<a href="delete_post.php?id=' . $row['id'] . '">Excluir</a>';
     echo '</div>';
@@ -76,8 +70,10 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/autentica.php';
     $conn->close();
 
     ?>
+    <button><a href="../index.html">Voltar</a></button>
+</div>
 
-<button><a href="../index.html">Voltar</a></button>
+
 
 
 <div id="footer"><p id="copy">&copy; Projeto PI II </p></div>
