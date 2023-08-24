@@ -50,4 +50,11 @@
     box-shadow: 8px 8px 30px #FFFFFF;
   }
 
+  .table-container {
+  width: auto;
+  height: auto;
+}
+
+}
+
 }

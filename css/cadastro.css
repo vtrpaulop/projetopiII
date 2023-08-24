@@ -8,6 +8,7 @@
 
     body {
       font-family: Arial, sans-serif;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);   
     }
     form {
       position: relative;
@@ -33,7 +34,7 @@
 
     }
     input[type="submit"] {
-      background-color: #4CAF50;
+      background-color: #00BFFF;
       color: black;
       font-weight: bold;
       padding: 10px 15px;

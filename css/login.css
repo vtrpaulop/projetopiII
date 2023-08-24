@@ -7,7 +7,8 @@
   #header {
     width: 100%;
     height: 140px;
-    background-color:#DCDCDC;
+    background-color:#F5FFFA;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
   
   .logo {
@@ -31,7 +32,7 @@
     }
 
 input {
-      background-color: #4CAF50;
+      background-color: #00BFFF;
       color: black;
       font-weight: bold;
       padding: 10px 15px;
@@ -49,7 +50,7 @@ input {
     }
 
     button {
-      background-color: #4CAF50;
+      background-color: #00BFFF;
       color: black;
       font-weight: bold;
       padding: 10px 15px;
@@ -64,7 +65,7 @@ input {
    }
 
    button:hover{
-      background-color: #CD5C5C ;
+      background-color: #FFFF00 ;
       transition: 0.1s;
       font-size:16px;
       font-style: black;
@@ -103,8 +104,9 @@ input {
     #footer {
     width: 100%;
     height: 140px;
-    background-color:#DCDCDC;
+    background-color:#F5FFFA;
     font-size: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   }
 
   #copy{

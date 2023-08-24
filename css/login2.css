@@ -1,0 +1,21 @@
+/* esse css é apenas da página do login dos posts*/
+
+body {
+	box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);   
+}
+
+#login {
+	margin: 10px 20px;
+}
+
+button {
+	display: inline;
+	position: relative;
+}
+
+input {
+	display: inline-block;
+	position: relative;
+	margin: 0 0px;
+
+}

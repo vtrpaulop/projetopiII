@@ -1,0 +1,35 @@
+.table-container {
+            max-width: 800px;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+
+        .table-row {
+            display: flex;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .table-header {
+            background-color: #f4f4f4;
+            padding: 8px;
+            flex: 1;
+            text-align: left;
+        }
+
+        .table-cell {
+            padding: 8px;
+            flex: 1;
+            text-align: left;
+            max-width: 200px; /* Limita a largura da célula */
+            overflow: hidden;
+            text-overflow: ellipsis; /* Adiciona reticências (...) quando o texto estoura */
+            white-space: nowrap; /* Impede que o texto quebre em várias linhas */
+        }
+
+        .even {
+            background-color: #f9f9f9;
+        }
+
+        .odd {
+            background-color: #f0f0f0;
+        }
