@@ -32,19 +32,53 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/autentica.php';
 
   <div class="container">
   <h2>Listagem de pontos registrados</h2>
+  <form method="get" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+  <label for="search">Filtrar por nome:</label>
+  <input type="text" id="search" name="search" value="<?php echo isset($_GET['search']) ? $_GET['search'] : ''; ?>">
+  <button type="submit">Buscar</button>
+</form><br>
+<div class="filters">
+  <form method="get" action="">
+    <label for="data_ini">Data de Início:</label>
+    <input type="date" id="data_ini" name="data_ini">
+
+    <label for="data_fim">Data de Término:</label>
+    <input type="date" id="data_fim" name="data_fim">
+
+    <button type="submit">Filtrar</button>
+  </form>
+</div><br>
+
   <div class="table-container">
     <?php
-    // Busca todos os pontos no banco de dados
-    $query = "SELECT p.id AS ponto_id, u.id AS user_id, u.nome AS nome_usuario, u.sobrenome AS sobrenome_usuario, p.timestamp FROM pontos p INNER JOIN users u ON p.user_id = u.id";
-    $result = $conn->query($query);
+   // Busca todos os pontos no banco de dados
+    $search = isset($_GET['search']) ? $conn->real_escape_string($_GET['search']) : '';
+
+    // Obtém os valores dos filtros de datas
+$data_ini = $_GET['data_ini'] ?? '';
+$data_fim = $_GET['data_fim'] ?? '';
+
+// Monta a consulta SQL com os filtros de datas
+$query = "SELECT p.id AS ponto_id, u.id AS user_id, CONCAT(u.nome, ' ', u.sobrenome) AS nome_completo, p.timestamp, CONCAT(p.latitude,' ', p.longitude) AS coordenadas
+          FROM pontos p INNER JOIN users u ON p.user_id = u.id
+          WHERE (p.timestamp >= '$data_ini' OR '$data_ini' = '') AND (p.timestamp <= '$data_fim' OR '$data_fim' = '')";
+
+if (!empty($search)) {
+  $query .= " AND (u.nome LIKE '%$search%' OR u.sobrenome LIKE '%$search%')";
+}
+
+
+$result = $conn->query($query);
 
     if ($result->num_rows > 0) {
       while ($row = $result->fetch_assoc()) {
         echo "<div class='row'>";
         echo "<div class='cell'>" . "Id do log <br>" . $row["ponto_id"] . "</div>";
         echo "<div class='cell'>" . "Id do Usuário  <br>" . $row["user_id"] . "</div>";
-        echo "<div class='cell'>" . "Nome do Usuário <br>" . $row["nome_usuario"]. " " . $row["sobrenome_usuario"] . "</div>";
+        echo "<div class='cell'>" . "Nome do Usuário <br>" . $row["nome_completo"] . "</div>";
         echo "<div class='cell'>" . "Registro <br>" . date('d/m/Y H:i:s', strtotime($row["timestamp"])) . "</div>";
+        echo "<div class='cell'>" . "Localização <br>" . $row["coordenadas"] . "<br>"  ."<a href='https://www.google.com/maps/search/?api=1&query=" . $row["coordenadas"] . "' target='_blank'>Abrir no Google Maps</a></div>";
+
         echo "<div class='cell'>";
         echo "<a href='edicaoPonto.php?id=" . $row['ponto_id'] . "'>Editar</a> | ";
         echo "<a href='" . $_SERVER['PHP_SELF'] . "?action=delete&ponto_id=" . $row["ponto_id"] . "' onclick='return confirm(\"Deseja realmente excluir o ponto?\")'>Excluir</a>";
