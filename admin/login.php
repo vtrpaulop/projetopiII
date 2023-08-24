@@ -40,12 +40,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="..\css\reset.css">    
     <link rel="stylesheet" href="..\css\login.css">
+    <link rel="stylesheet" href="..\css\index.css">
     <link rel="stylesheet" href="..\css\responsiva.css">
     
     <title>Tela de Login:</title>
 </head>
 <body>
-    <img class="logo" src="..\img\logo.png">
+    <img class="logo" src="..\img\logo3.png">
     <div id="header"><p class="titletop">  </p></div>
   
 
