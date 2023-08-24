@@ -13,7 +13,7 @@ session_start();
 <!DOCTYPE html>
         
         
-    <html>
+    <html>  
 
     <head>
         <meta charset="UTF-8">
@@ -24,7 +24,7 @@ session_start();
     </head>
     <body>
             <div id="header">
-               <img class="logo" src="img\logo.png">
+               <img class="logo" src="img\logo3.png">
                 <div class="botao-log">
                     <form action="logout.php" method="post">
                      <input type="submit" value="Logout" onclick="mostrarMensagem()">
@@ -39,13 +39,39 @@ session_start();
                 </div>
             </div>
 
-            
-        <div class="body">
 
         <h2>Bem-vindo!</h2><br>
         <p>Esta é uma página protegida.</p>
         </div>
-        <a href="managerUser.php"><button type="submit">Registrar ponto</button></a>
+       
+                    <script>
+                     function ponto() {
+                     alert('Ponto registrado com sucesso!');
+                     return false;
+                      }
+                     </script>
+        <button id="registerButton" onclick="ponto()">Registrar Ponto</button>
+    
+    <script>
+        document.getElementById("registerButton").addEventListener("click", function() {
+            navigator.geolocation.getCurrentPosition(function(position) {
+                var latitude = position.coords.latitude;
+                var longitude = position.coords.longitude;
+                
+                // Enviar os dados de localização para o servidor usando AJAX
+                var xhr = new XMLHttpRequest();
+                xhr.open("POST", "/managerUser.php", true);
+                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        console.log(xhr.responseText);
+                    }
+                };
+                var data = "latitude=" + latitude + "&longitude=" + longitude;
+                xhr.send(data);
+            });
+        });
+    </script>
         
     
 
