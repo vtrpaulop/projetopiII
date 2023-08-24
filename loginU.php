@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Login realizado com sucesso!";        
 
         // Aqui você pode fazer o redirecionamento usando a função header()
-        header("Location: painelUser.php");
+        header("Location: painelUser.html");
     } else {
         // Login inválido
         echo "Usuário ou senha incorretos.";
@@ -44,8 +44,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
      
     <div id="header">
-    <img class="logo" src="..\img\logo.png">
-    <p class="titletop"> AAA </p>
+    <img class="logo" src="..\img\logo3.png">
+    <p class="titletop"> RH Soluções - Projeto PI II</p>
   <div class="menu">   
   </div>  
   </div>
@@ -63,7 +63,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
          <div class="botoes">
                 <input type="submit" value="Entrar">
-                <a id="back" href="index.html"><button type="button" name="voltar">Voltar</button></a>
+                <a id="back" href="index.html">
+                <button type="button" name="voltar">Voltar</button></a>
             </div></form>
             <a id="id" href="admin\esqueciSenha.html"><button type="button" name="esqueci">Esqueci minha senha</button></a>
 </div>
