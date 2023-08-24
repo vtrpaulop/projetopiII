@@ -1,13 +1,18 @@
+body {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);   
+}
+
 .post {
+    
     border: 1px solid #ccc;
     padding: 10px;
     margin-bottom: 10px;
-    background-color: #f9f9f9;
+    background-color: #F8F8FF;
     width: auto;
   }
 
   .post:hover{
-  	background-color: #32CD32;
+  	background-color: #DCDCDC;
   }
 
   .post p {
@@ -18,5 +23,32 @@
     color: red;
     text-decoration: none;
   }
+
+  #nov {
+    margin: 10px 20px;
+  }
+
+  button {
+      background-color: #00BFFF;
+      color: black;
+      font-weight: bold;
+      padding: 10px 15px;
+      border: solid;
+      border-width: 1px;
+      border-radius: 2px;
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      float: center;
+      text-decoration: none;
+   }
+
+   button:hover{
+      background-color: #FFFF00 ;
+      transition: 0.1s;
+      font-size:16px;
+      font-style: black;
+
+    }
 
 
