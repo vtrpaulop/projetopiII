@@ -49,6 +49,7 @@ if (isset($_GET['id'])) {
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="\css\reset.css">
   <link rel="stylesheet" href="\css\cadastro.css">
+  <link rel="stylesheet" href="../css/responsiva.css">
   <title>Edição de Ponto</title>
 </head>
 <body>

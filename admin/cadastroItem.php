@@ -2,6 +2,7 @@
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="\css\reset.css">
     <link rel="stylesheet" href="\css\cadastro.css">
+    <link rel="stylesheet" href="../css/responsiva.css">
 <html>
 <head>
   <title>Cadastro de Item</title>
