@@ -2,29 +2,21 @@
 session_start();
 require_once $_SERVER['DOCUMENT_ROOT'] . '/autentica.php';
 
-// Verifica se o usuário está autenticado e obtém o ID do usuário
-if (isset($_SESSION['user_id'])) {
-    $user_id = $_SESSION['user_id'];
-    
-    // Verifica se as coordenadas de latitude e longitude foram fornecidas
-    if (isset($_POST['latitude']) && isset($_POST['longitude'])) {
-        $latitude = $_POST['latitude'];
-        $longitude = $_POST['longitude'];
-        
-        // Insere os dados no banco de dados
-        $query = "INSERT INTO pontos (user_id, latitude, longitude, timestamp) VALUES ('$user_id', '$latitude', '$longitude', NOW())";
-        
-        if ($conn->query($query) === TRUE) {
-            echo "Ponto registrado com sucesso!";
-        } else {
-            echo "Erro ao registrar ponto: " . $conn->error;
-        }
-    } else {
-        echo "Coordenadas de latitude e longitude não foram fornecidas.";
-    }
-} else {
-    echo "Usuário não autenticado.";
+// Verifica se o formulário de registro de ponto foi enviado
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registrarPonto'])) {
+  // Obter o ID do usuário da sessão
+  if (isset($_SESSION['user_id'])) {
+    $user_Id = $_SESSION['user_id'];
 
+    // Inserir o registro de ponto no banco de dados
+    $query = "INSERT INTO pontos (user_id, timestamp) VALUES ('$user_Id', NOW())";
+    if ($conn->query($query) === TRUE) {
+      echo "<p>Ponto registrado com sucesso.</p>";
+    } else {
+      echo "<p class='error'>Erro ao registrar ponto: " . $conn->error . "</p>";
+    }
+  } else {
+    echo "<p class='error'>Usuário não identificado.</p>";
+  }
 }
 
-?>
