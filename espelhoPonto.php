@@ -29,6 +29,7 @@ if (isset($_SESSION['user_id'])) {
     <link rel="stylesheet" href="..\css\ponto.css">
     <link rel="stylesheet" href="..\css\responsiva.css">
     <title>Listagem de pontos registrados</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body>
 
@@ -43,12 +44,20 @@ if (isset($_SESSION['user_id'])) {
             <input type="date" id="data_fim" name="data_fim">
 
             <button type="submit">Filtrar</button>
-        </form>
+        </form><br>
         <button id="printButton">Imprimir</button>
+        <button id="exportButton">Salvar em PDF</button>
         <script>
-          document.getElementById("printButton").addEventListener("click", function() {
-    window.print();
-});</script>
+        document.getElementById("printButton").addEventListener("click", function() {
+            window.print();
+        });
+
+        document.getElementById("exportButton").addEventListener("click", function() {
+            const content = document.getElementById("conteudo"); // Substitua "conteudo" pelo ID do elemento que deseja exportar
+
+            html2pdf().from(content).save("arquivo.pdf");
+        });
+    </script>
     </div><br>
 
     <div class="table-container">
