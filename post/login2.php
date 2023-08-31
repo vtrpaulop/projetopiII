@@ -15,29 +15,38 @@ if (isset($_SESSION['login_error'])) {
     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="\css\reset.css">    
     <link rel="stylesheet" href="\css\index.css">
-    <link rel="stylesheet" href="\css\login2.css">
+    <link rel="stylesheet" href="\css\login.css">
     <link rel="stylesheet" href="\css\responsiva.css">
-    <title>Login</title>
+    <title>Tela de Login:</title>
 </head>
 <body>
+     
     <div id="header">
     <img class="logo" src="..\img\logo3.png">
-    <p class="titletop"> ESTE É O CABEÇALHO </p>
-    <div id="login">
-    <h1>Login</h1><br>
-    <form action="autenticado.php" method="post">
+    <p class="titletop"> RH Soluções - Projeto PI II</p>
+  <div class="menu">   
+  </div>  
+  </div>
+
+    <div id="body">
+    <h1>Tela de Login</h1><br>
+
+
+    <form method="POST" action="autenticado.php">
         <label for="username">Usuário:</label>
-        <input type="text" name="username" required><br><br>
+        <input class="cad" type="text" name="username" placeholder="Digite seu nome de usuário" required><br><br>
 
-        <label for="password">Senha:   </label>
-        <input type="password" name="password" required><br><br>
+        <label for="password">Senha:</label>
+        <input class="cad" type="password" name="password" placeholder="Digite sua senha" required>
 
-        <input type="submit" value="Entrar">
-        <button type="button" name="voltar"><a href="novidades.php">Voltar</button></a>
-        
-    </form>
+         <div class="botoes">
+                <input type="submit" value="Entrar">
+                <a id="back" href="..\index.html">
+                <button type="button" name="voltar">Voltar</button></a>
+            </div></form>
+            <a id="id" href="admin\esqueciSenha.html"><button type="button" name="esqueci">Esqueci minha senha</button></a>
 </div>
-    
-    <div id="footer"><p id="copy">&copy; Projeto PI II  </p></div>
+      <div id="footer"><p id="copy">&copy; Projeto PI II  </p></div>
 </body>
+
 </html>
