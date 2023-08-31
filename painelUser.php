@@ -1,29 +1,39 @@
 <?php
-
 session_start();
 
-   // Obter o ID do usuário da sessão
-   if (isset($_SESSION['username'])) {
-    $username = $_SESSION['username'];
+require_once 'autentica.php'; // HERDA BANCO
+
+// Verifica se o formulário de registro de ponto foi enviado
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registrarPonto'])) {
+  // Obter o ID do usuário da sessão
+  if (isset($_SESSION['user_id'])) {
+    $user_Id = $_SESSION['user_id'];
+
+    // Inserir o registro de ponto no banco de dados
+    $query = "INSERT INTO pontos (user_id, timestamp) VALUES ('$user_Id', NOW())";
+    if ($conn->query($query) === TRUE) {
+      echo "<p>Ponto registrado com sucesso.</p>";
+    } else {
+      echo "<p class='error'>Erro ao registrar ponto: " . $conn->error . "</p>";
+    }
+  } else {
+    echo "<p class='error'>Usuário não identificado.</p>";
+  }
 }
-
-
 ?>
 
 <!DOCTYPE html>
-        
-        
-    <html>  
-
-    <head>
-        <meta charset="UTF-8">
+<html>
+<head>
+  <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
         <link rel="stylesheet" href="css\reset.css">
         <link rel="stylesheet" href="css\painel.css">
+        <link rel="stylesheet" href="css\responsiva.css">
         <title>Página Protegida</title>
-    </head>
-    <body>
-            <div id="header">
+</head>
+<body>
+  <div id="header">
                <img class="logo" src="img\logo3.png">
                 <div class="botao-log">
                     <form action="logout.php" method="post">
@@ -38,47 +48,23 @@ session_start();
                     </form>
                 </div>
             </div>
-
-
-        <h2>Bem-vindo!</h2><br>
+            <h2>Bem-vindo!</h2><br>
         <p>Esta é uma página protegida.</p>
-        </div>
-       
-                    <script>
+        </div><br>
+
+        <script>
                      function ponto() {
                      alert('Ponto registrado com sucesso!');
                      return false;
                       }
                      </script>
-        <button id="registerButton" onclick="ponto()">Registrar Ponto</button>
-    
-    <script>
-        document.getElementById("registerButton").addEventListener("click", function() {
-            navigator.geolocation.getCurrentPosition(function(position) {
-                var latitude = position.coords.latitude;
-                var longitude = position.coords.longitude;
-                
-                // Enviar os dados de localização para o servidor usando AJAX
-                var xhr = new XMLHttpRequest();
-                xhr.open("POST", "/managerUser.php", true);
-                xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                xhr.onreadystatechange = function() {
-                    if (xhr.readyState === 4 && xhr.status === 200) {
-                        console.log(xhr.responseText);
-                    }
-                };
-                var data = "latitude=" + latitude + "&longitude=" + longitude;
-                xhr.send(data);
-            });
-        });
-    </script>
-        
-    
 
-          <div id="footer"><p id="copy">&copy; vtR Project's </p></div>
+   <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+    <input type="submit" name="registrarPonto" value="Registrar Ponto" onclick="ponto()">
+   <button> <a href="espelhoponto.php">Gerar espelho ponto</button></a>
+  </form><br>
 
-    </body>
 
-    </html>
-
-    
+ <div id="footer"><p id="copy">&copy; vtR Project's </p></div>
+</body>
+</html>
