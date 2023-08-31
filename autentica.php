@@ -2,7 +2,7 @@
 
 $host = "localhost:3306";
 $usuario_bd = "root";
-$senha_bd = "3618629";
+$senha_bd = "";
 $banco = "projetopi";
 
 
