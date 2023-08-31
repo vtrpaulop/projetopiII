@@ -20,7 +20,7 @@
 
 <div id="nov">
     <h1>Publicações e Interações</h1>
-
+<br>
     <?php
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/autentica.php';
