@@ -1,25 +1,25 @@
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 380px) {
   .botao-log {
     width: auto;
   }
 
  .menu {
   width: 330px;
-     margin: 25px 20px 30px 0px;
+     margin: 10px 20px 30px 0px;
       display: inline-block;    
       float: right;     
       }
 
  .logo {
-  width: 130px;
+  width: 90px;
   display: inline-block;
-  margin: 10px 50px;
+  margin: 10px 10px;
   position: absolute; 
  }
 
  .logo:hover {
-  width: 140px;
-  transition: 0.4s;
+  width: 100px;
+  transition: 0.1s;
  }
 
 
@@ -27,12 +27,26 @@
     width: auto;
     font-size: 15px;
     text-align: center;
-    padding: 30px;
+    padding: 50px 70px;
     font-weight: bold;
     font-family: Arial, sans-serif;
-
   }
 
+.botao-log{
+   
+    padding: 100px 20px; 
+    }
+
+ #ponto {
+  width: 300px;
+  height: 230px;
+ }
+
+ #ponto:hover {
+  opacity: 0.5;
+  width: 310px;
+  height: 220px;
+}
 
   .button {
     display: inline-block;
@@ -42,6 +56,7 @@
     cursor: pointer;
     font-size: 10px;
     font-weight: bold;
+    
   }
 
   .mapa-conteudo {

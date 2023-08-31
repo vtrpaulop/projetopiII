@@ -28,27 +28,27 @@ body {
     margin: 10px 20px;
   }
 
-  button {
-      background-color: #00BFFF;
-      color: black;
-      font-weight: bold;
-      padding: 10px 15px;
-      border: solid;
-      border-width: 1px;
-      border-radius: 2px;
-      cursor: pointer;
-      position: relative;
-      display: flex;
-      float: center;
-      text-decoration: none;
-   }
+button {
+    background-color: #00BFFF;
+    color: black;
+    font-weight: bold;
+    padding: 10px 15px;
+    border: solid;
+    border-width: 1px;
+    border-radius: 2px;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    float: center;
+    text-decoration: none; /* Remover sublinhado */
+}
 
-   button:hover{
-      background-color: #FFFF00 ;
-      transition: 0.1s;
-      font-size:16px;
-      font-style: black;
+button:hover {
+    background-color: #FFFF00;
+    transition: 0.1s;
+    font-size: 16px;
+    font-style: black;
+}
 
-    }
 
 
