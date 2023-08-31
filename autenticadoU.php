@@ -25,7 +25,7 @@ if ($result->num_rows == 1) {
     $stmt->close();
     $conn->close();
     $_SESSION['login_error'] = "Usuário ou senha inválidos.";
-    header("Location: loginl.php");
+    header("Location: loginU.php");
     exit();
 }
 ?>
