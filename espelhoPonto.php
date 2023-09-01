@@ -18,6 +18,13 @@ if (isset($_SESSION['user_id'])) {
             echo "<p class='error'>Erro ao excluir ponto: " . $conn->error . "</p>";
         }
     }
+
+    $data_ini = $_GET['data_ini'] ?? '';
+    $data_fim = $_GET['data_fim'] ?? '';
+
+    function formatarData($data) {
+        return date('d/m/Y', strtotime($data));
+    }
 ?>
 
 <!DOCTYPE html>
@@ -47,55 +54,71 @@ if (isset($_SESSION['user_id'])) {
         </form><br>
         <button id="printButton">Imprimir</button>
         <button id="exportButton">Salvar em PDF</button>
-        <script>
-        document.getElementById("printButton").addEventListener("click", function() {
-            window.print();
-        });
-
-        document.getElementById("exportButton").addEventListener("click", function() {
-            const content = document.getElementById("conteudo"); // Substitua "conteudo" pelo ID do elemento que deseja exportar
-
-            html2pdf().from(content).save("arquivo.pdf");
-        });
-    </script>
-    </div><br>
+    </div>
+    <h1>
+        <br><?php 
+        if (!empty($data_ini) && !empty($data_fim)) {
+            echo "De: " . formatarData($data_ini) . " a " . formatarData($data_fim);
+        } elseif (!empty($data_ini)) {
+            echo "A partir de: " . formatarData($data_ini);
+        } elseif (!empty($data_fim)) {
+            echo "Até: " . formatarData($data_fim);
+        } else {
+            echo "Período não especificado";
+        }
+        ?></h1>
+    <br>
 
     <div class="table-container">
         <?php
+        if (!empty($data_ini) || !empty($data_fim)) {
+            // Monta a consulta SQL com os filtros de datas
+            $query = "SELECT p.id AS ponto_id, u.id AS user_id, CONCAT(u.nome, ' ', u.sobrenome) AS nome_completo, p.timestamp
+                      FROM pontos p INNER JOIN users u ON p.user_id = u.id
+                      WHERE p.user_id = '$user_id'";
 
-        // Obtém os valores dos filtros de datas
-$data_ini = $_GET['data_ini'] ?? '';
-$data_fim = $_GET['data_fim'] ?? '';
-        // Monta a consulta SQL com os filtros de datas
-        $query = "SELECT p.id AS ponto_id, u.id AS user_id, CONCAT(u.nome, ' ', u.sobrenome) AS nome_completo, p.timestamp
-                  FROM pontos p INNER JOIN users u ON p.user_id = u.id
-                  WHERE p.user_id = '$user_id' AND (p.timestamp >= '$data_ini 00:00:00' OR '$data_ini' = '') AND (p.timestamp <= '$data_fim 23:59:59' OR '$data_fim' = '')";
-
-        if (!empty($search)) {
-            $query .= " AND (u.nome LIKE '%$search%' OR u.sobrenome LIKE '%$search%')";
-        }
-
-        $result = $conn->query($query);
-
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                echo "<div class='row'>";
-                echo "<div class='cell'>" . "Id do log <br>" . $row["ponto_id"] . "</div>";
-                echo "<div class='cell'>" . "Id do Usuário  <br>" . $row["user_id"] . "</div>";
-                echo "<div class='cell'>" . "Nome do Usuário <br>" . ucwords($row["nome_completo"]) . "</div>";
-                echo "<div class='cell'>" . "Registro <br>" . date('d/m/Y H:i:s', strtotime($row["timestamp"])) . "</div>";
-
-                echo "<div class='cell'>";
-                echo "</div>";
-                echo "</div>";
+            if (!empty($data_ini)) {
+                $query .= " AND p.timestamp >= '$data_ini 00:00:00'";
             }
-        } else {
-            echo "<div class='row'><div class='cell' colspan='4'>Nenhum ponto registrado.</div></div>";
+
+            if (!empty($data_fim)) {
+                $query .= " AND p.timestamp <= '$data_fim 23:59:59'";
+            }
+
+            $result = $conn->query($query);
+
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    echo "<div class='row'>";
+                    echo "<div class='cell'>" . "Id do log <br>" . $row["ponto_id"] . "</div>";
+                    echo "<div class='cell'>" . "Id do Usuário  <br>" . $row["user_id"] . "</div>";
+                    echo "<div class='cell'>" . "Nome do Usuário <br>" . ucwords($row["nome_completo"]) . "</div>";
+                    echo "<div class='cell'>" . "Registro <br>" . date('d/m/Y H:i:s', strtotime($row["timestamp"])) . "</div>";
+
+                    echo "<div class='cell'>";
+                    echo "</div>";
+                    echo "</div>";
+                }
+            } else {
+                echo "<div class='row'><div class='cell' colspan='4'>Nenhum ponto registrado.</div></div>";
+            }
         }
         ?>
     </div><br>
     <a href="painelUser.php"><input id="voltar" type="submit" name="voltar" value="Voltar"></a>
 </div>
+
+<script>
+    document.getElementById("printButton").addEventListener("click", function() {
+        window.print();
+    });
+
+    document.getElementById("exportButton").addEventListener("click", function() {
+        const content = document.getElementById("conteudo"); // Substitua "conteudo" pelo ID do elemento que deseja exportar
+
+        html2pdf().from(content).save("arquivo.pdf");
+    });
+</script>
 
 </body>
 </html>
