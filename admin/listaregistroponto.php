@@ -14,6 +14,12 @@ if (isset($_GET["action"]) && $_GET["action"] == "delete" && isset($_GET["ponto_
         echo "<p class='error'>Erro ao excluir ponto: " . $conn->error . "</p>";
     }
 }
+    $data_ini = $_GET['data_ini'] ?? '';
+    $data_fim = $_GET['data_fim'] ?? '';
+
+    function formatarData($data) {
+        return date('d/m/Y', strtotime($data));
+    }
 ?>
 
 <!DOCTYPE html>
@@ -42,12 +48,23 @@ if (isset($_GET["action"]) && $_GET["action"] == "delete" && isset($_GET["ponto_
             <input type="date" id="data_fim" name="data_fim">
             <button type="submit">Filtrar</button>
         </form><br>
-        <button id="printButton">Imprimir</button><br><br>
-        <script>
-            document.getElementById("printButton").addEventListener("click", function () {
-                window.print();
-            });
-        </script>
+        <button id="printButton">Imprimir</button>
+        <button id="exportButton">Salvar em PDF</button>
+    </div>
+    <h1>
+        <br><?php 
+        if (!empty($data_ini) && !empty($data_fim)) {
+            echo "De: " . formatarData($data_ini) . " a " . formatarData($data_fim);
+        } elseif (!empty($data_ini)) {
+            echo "A partir de: " . formatarData($data_ini);
+        } elseif (!empty($data_fim)) {
+            echo "Até: " . formatarData($data_fim);
+        } else {
+            echo "Período não especificado";
+        }
+        ?></h1>
+        <br>
+
         <div class="table-container">
             <?php
             // Busca todos os pontos no banco de dados
@@ -101,7 +118,17 @@ if (isset($_GET["action"]) && $_GET["action"] == "delete" && isset($_GET["ponto_
         </div><br>
         <a href="../admin/painel.html"><input id="voltar" type="submit" name="voltar" value="Voltar"></a>
     </div>
+<script>
+    document.getElementById("printButton").addEventListener("click", function() {
+        window.print();
+    });
 
+    document.getElementById("exportButton").addEventListener("click", function() {
+        const content = document.getElementById("conteudo"); // Substitua "conteudo" pelo ID do elemento que deseja exportar
+
+        html2pdf().from(content).save("arquivo.pdf");
+    });
+</script>
 </body>
 
 </html>
