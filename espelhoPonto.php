@@ -5,20 +5,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/autentica.php';
 // Verifica se o usuário está autenticado e obtém o ID do usuário
 if (isset($_SESSION['user_id'])) {
     $user_id = $_SESSION['user_id'];
-
-    // Processamento da exclusão de itens
-    if (isset($_GET["action"]) && $_GET["action"] == "delete" && isset($_GET["ponto_id"])) {
-        $ponto_id = $_GET["ponto_id"];
-
-        // Deleta o item do banco de dados
-        $query = "DELETE FROM pontos WHERE id = '$ponto_id' AND user_id = '$user_id'";
-        if ($conn->query($query) === TRUE) {
-            echo "<p>Ponto excluído com sucesso.</p>";
-        } else {
-            echo "<p class='error'>Erro ao excluir ponto: " . $conn->error . "</p>";
-        }
-    }
-
     $data_ini = $_GET['data_ini'] ?? '';
     $data_fim = $_GET['data_fim'] ?? '';
 

@@ -63,6 +63,22 @@
       margin: 10px 20px;
    }
 
+    .conteudo{
+    margin: 20px;
+    }
+
+   #botoes {
+    align-items: center;
+    display: flex;
+    text-align: center;
+    margin: 0px 10px;
+    text-decoration: none;
+   }
+
+   #botoes form {
+    margin-right: 10px; /* Espaçamento direita entre o formulário e o link */
+  }
+
    button:hover{
       background-color: #00FF7F ;
       transition: 0.1s;

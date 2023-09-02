@@ -48,6 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registrarPonto'])) {
                     </form>
                 </div>
             </div>
+            <div class="conteudo">
             <h2>Bem-vindo!</h2><br>
         <p>Esta é uma página protegida.</p>
         </div><br>
@@ -59,10 +60,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registrarPonto'])) {
                       }
                      </script>
 
-   <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-    <input type="submit" name="registrarPonto" value="Registrar Ponto" onclick="ponto()">
-   <button> <a href="espelhoponto.php">Gerar espelho ponto</button></a>
-  </form><br>
+   <div id="botoes"><form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+    <input type="submit" name="registrarPonto" value="Registrar Ponto" onclick="ponto()">   
+  </form>
+  <a href="espelhoponto.php"><input type="submit" name="Gerar espelho ponto" value="Gerar espelho ponto"> </input></a></div></div><br>
 
 
  <div id="footer"><p id="copy">&copy; vtR Project's </p></div>
