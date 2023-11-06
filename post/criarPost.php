@@ -1,8 +1,7 @@
 <?php
-
+session_start();
 require_once $_SERVER['DOCUMENT_ROOT'] . '/autentica.php';
 // Criar nova publicação
-session_start();
 
 if (isset($_SESSION['user_id']) && isset($_POST['content'])) {
     $user_id = $_SESSION['user_id'];
@@ -21,4 +20,4 @@ if (isset($_SESSION['user_id']) && isset($_POST['content'])) {
 }
 
 header("Location: novidades.php");
-?>
+?>	

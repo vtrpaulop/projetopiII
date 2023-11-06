@@ -1,9 +1,16 @@
+<?php 
+session_start();
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/autentica.php';
+
+
+ ?>
+
 <!DOCTYPE html>
 <html>
 <head>
+     
      <meta charset="UTF-8">
-
- <meta name="viewport" content="width=device-width">
+     <meta name="viewport" content="width=device-width">
     <link rel="stylesheet" href="..\css\reset.css">
     <link rel="stylesheet" href="..\css\listagem.css">
     <link rel="stylesheet" href="..\css\index.css">
@@ -22,10 +29,9 @@
     <h1>Publicações e Interações</h1>
 <br>
     <?php
+       
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/autentica.php';
     // Verifica se o usuário está logado
-    session_start();
     if (isset($_SESSION['username'])) {
         echo '<p>Bem-vindo, ' . $_SESSION['username'] . '! <a href="logout.php">Sair</a></p>';
         echo '<h2>Nova Publicação</h2>';
@@ -48,7 +54,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/autentica.php';
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-   
 
     while ($row = $result->fetch_assoc()) {
         

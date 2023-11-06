@@ -1,29 +1,35 @@
 <?php
-require 'vendor/autoload.php'; // Inclua o autoloader do Mailgun
+session_start();
 require_once 'autentica.php';
-use Mailgun\Mailgun;
+
+// Inclua a classe PHPMailer
+require 'phpmailer/PHPMailerAutoload.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = $_POST["nome"];
     $email = $_POST["email"];
     $mensagem = $_POST["mensagem"];
 
-    # Substitua pelas suas chaves da API e pelo domínio do Mailgun
-    $mg = Mailgun::create('SUA_CHAVE_API');
-    $domain = 'seu_dominio_mailgun';
+    // Configuração do PHPMailer
+    $mail = new PHPMailer;
+    $mail->isSMTP();
+    $mail->Host = 'smtp.gmail.com'; // Servidor SMTP (exemplo: smtp.gmail.com para o Gmail)
+    $mail->Port = 587; // Porta SMTP (587 para TLS, 465 para SSL)
+    $mail->SMTPAuth = true;
+    $mail->SMTPSecure = 'tls'; // 'tls' ou 'ssl', dependendo da porta
+    $mail->Username = 'seuemail@gmail.com'; // Seu e-mail
+    $mail->Password = 'sua_senha'; // Sua senha do e-mail
+    $mail->setFrom('seuemail@gmail.com', 'Seu Nome'); // Seu e-mail e nome
+    $mail->addAddress('destino@gmail.com'); // E-mail de destino
 
-    $params = [
-        'from'    => 'seuemail@gmail.com', // Substitua pelo seu e-mail
-        'to'      => 'destino@gmail.com', // Substitua pelo e-mail que receberá as mensagens
-        'subject' => 'Contato pelo site',
-        'text'    => "Nome: $nome\nE-mail: $email\nMensagem: $mensagem",
-    ];
+    // Conteúdo do e-mail
+    $mail->Subject = 'Contato pelo site';
+    $mail->Body = "Nome: $nome\nE-mail: $email\nMensagem: $mensagem";
 
-    try {
-        $mg->messages()->send($domain, $params);
+    if ($mail->send()) {
         echo "Mensagem enviada com sucesso!";
-    } catch (Exception $e) {
-        echo "Ocorreu um erro ao enviar a mensagem: {$e->getMessage()}";
+    } else {
+        echo "Ocorreu um erro ao enviar a mensagem: " . $mail->ErrorInfo;
     }
 }
 ?>
