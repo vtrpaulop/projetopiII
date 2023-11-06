@@ -1,5 +1,5 @@
 <?php
-// Herda do banco
+session_start();
 require_once $_SERVER['DOCUMENT_ROOT'] . '/autentica.php';
 
 // Processamento da exclusão de itens
@@ -24,11 +24,10 @@ if (isset($_GET["action"]) && $_GET["action"] == "delete" && isset($_GET["ponto_
 
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="\css\reset.css">
+    <link rel="stylesheet" href="..\css\reset.css">
     <link rel="stylesheet" href="..\css\ponto.css">
     <link rel="stylesheet" href="..\css\responsiva.css">
     <title>Listagem de pontos registrados</title>
