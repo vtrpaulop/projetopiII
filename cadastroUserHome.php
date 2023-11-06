@@ -3,15 +3,16 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="\css\reset.css">
-    <link rel="stylesheet" href="\css\cadastro.css">
+    <link rel="stylesheet" href="css\reset.css">
+    <link rel="stylesheet" href="css\cadastro.css">
+    <link rel="stylesheet" href="css\responsiva.css">
   <title>Cadastro de Usuário</title>
 </head>
 <body>
   <h2>Cadastro de Usuário</h2>
   <?php
 //Herda do banco
-require_once '.\autentica.php';
+require_once 'autentica.php';
 
   // Processamento do formulário de cadastro
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -28,15 +29,16 @@ require_once '.\autentica.php';
     $query = "SELECT * FROM users WHERE username = '$username'";
     $result = $conn->query($query);
     if ($result->num_rows > 0) {
-      echo "<p class='error'>Usuário já cadastrado.</p>";
+      echo "<p class='error'>Usuário " . $username . "  já cadastrado em nossa base de dados.</p>";
     } else {
 // Insere o novo usuário no banco de dados
 $query = "INSERT INTO users (username, password, nome, sobrenome, dnascimento, telefone, email, sexo) VALUES ('$username', '$password', '$nome', '$sobrenome', '$dnascimento', '$telefone', '$email', '$sexo')";
 if ($conn->query($query) === TRUE) {
   echo "<p>Usuário cadastrado com sucesso.</p>";
 } else {
-  echo "<p class='error'>Erro ao cadastrar usuário: " . $conn->error . "</p>";
+  echo "<p class='error'>Erro ao cadastrar usuário: " . "o email " . $email . " já está cadastrado em nossa base de dados.</p>";
 }
+
     }
   }
 
