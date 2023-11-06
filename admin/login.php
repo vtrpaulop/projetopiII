@@ -20,17 +20,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $resultado = $conn->query($sql);
 
 
-    // Verificando se a consulta retornou algum resultado
-    if ($resultado->num_rows == 1) {
-        // Login bem-sucedido
-        echo "Login realizado com sucesso!";        
+   // Verificando se a consulta retornou algum resultado
+if ($resultado->num_rows == 1) {
+    // Login bem-sucedido
+    echo "Login realizado com sucesso!";
 
-        // Aqui você pode fazer o redirecionamento usando a função header()
-        header("Location: painel.html");
-    } else {
-        // Login inválido
-        echo "Usuário ou senha incorretos.";
-    }
+    // Redirecionamento usando JavaScript
+    echo "<script>window.location.href = 'painel.html';</script>";
+} else {
+    // Login inválido
+    echo "Usuário ou senha incorretos.";
+}
 }
 ?>
 
@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <input type="submit" value="Entrar">
                 <a id="back" href="../../index.html"><button type="button" name="voltar">Voltar</button></a>
             </div></form>
-            <a id="id" href="esqueciSenha.html"><button type="button" name="esqueci">Esqueci minha senha</button></a>
+            <a id="id" href="..\esqueciSenha.html"><button type="button" name="esqueci">Esqueci minha senha</button></a>
 </div>
       <div id="footer"><p id="copy">&copy; Projeto PI II  </p></div>
 </body>

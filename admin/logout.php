@@ -6,7 +6,7 @@ session_start();
 session_destroy();
 
 // Redireciona para o arquivo index.html
-header('Location: login.php');
+header('Location: https://www.resenhaprojetopi.com.br/index.html');
 exit();
 ?>
 
