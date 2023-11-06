@@ -1,7 +1,5 @@
 <?php
-
 require_once $_SERVER['DOCUMENT_ROOT'] . '/autentica.php';
-// Verificar o login do usuário
 session_start();
 
 $username = $_POST['username'];
@@ -17,9 +15,11 @@ if ($result->num_rows == 1) {
     $row = $result->fetch_assoc();
     $_SESSION['user_id'] = $row['id'];
     $_SESSION['username'] = $row['username'];
+   // header("Location: novidades.php");
+    echo "<script>window.location.href = 'novidades.php';</script>";
     $stmt->close();
     $conn->close();
-    header("Location: novidades.php");
+    
     exit();
 } else {
     $stmt->close();
