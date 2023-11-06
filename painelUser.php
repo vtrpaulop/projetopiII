@@ -49,8 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registrarPonto'])) {
                 </div>
             </div>
             <div class="conteudo">
-            <h2>Bem-vindo!</h2><br>
-        <p>Esta é uma página protegida.</p>
+            
         </div><br>
 
         <script>
@@ -60,12 +59,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['registrarPonto'])) {
                       }
                      </script>
 
-   <div id="botoes"><form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
-    <input type="submit" name="registrarPonto" value="Registrar Ponto" onclick="ponto()">   
-  </form>
-  <a href="espelhoponto.php"><input type="submit" name="Gerar espelho ponto" value="Gerar espelho ponto"> </input></a></div></div><br>
+    <div id="body">
+      <h2><?php echo '<p>Bem-vindo, ' . $_SESSION['username']?></h2><br>
+      <p>Esta é uma página protegida.</p>
+    <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+    <button type="submit" name="registrarPonto" value="Registrar Ponto" onclick="ponto()"> Registrar ponto </button> 
+    </form>
+    <a href="espelhoPonto.php"><button type="submit" name="Gerar espelho ponto" value="Gerar espelho ponto">Gerar espelho de ponto</button></a>
+    <a href="editaDados.php"><button type="submit" name="Alterar dados" value="Alterar dados">Editar Dados</button></a>
+    <a href="lista_carroU.php"><button type="submit" name="Vincular Veículo" value="Vincular Veículo"> Vincular Veículo </button></a><br></div>
 
 
- <div id="footer"><p id="copy">&copy; vtR Project's </p></div>
+ <div id="footer"><p id="copy">&copy; Projeto PI II </p></div>
 </body>
 </html>
