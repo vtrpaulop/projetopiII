@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once $_SERVER['DOCUMENT_ROOT'] . '/autentica.php';
+require_once 'autentica.php';
 
 // Verifica se o usuário está autenticado e obtém o ID do usuário
 if (isset($_SESSION['user_id'])) {
@@ -18,9 +18,9 @@ if (isset($_SESSION['user_id'])) {
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="\css\reset.css">
-    <link rel="stylesheet" href="..\css\ponto.css">
-    <link rel="stylesheet" href="..\css\responsiva.css">
+    <link rel="stylesheet" href="css\reset.css">
+    <link rel="stylesheet" href="css\ponto.css">
+    <link rel="stylesheet" href="css\responsiva.css">
     <title>Listagem de pontos registrados</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
