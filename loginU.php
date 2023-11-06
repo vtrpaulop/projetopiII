@@ -1,7 +1,7 @@
 <?php
-session_start();
-//Herda do banco
 require_once 'autentica.php';
+//Herda do banco
+
 
 
 // Verificando se o formulário de login foi enviado
@@ -33,18 +33,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
      <meta name="viewport" content="width=device-width">
-    <link rel="stylesheet" href="..\css\reset.css">    
-    <link rel="stylesheet" href="..\css\login.css">
-    <link rel="stylesheet" href="..\css\index.css">
-    <link rel="stylesheet" href="..\css\responsiva.css">
-    
+    <link rel="stylesheet" href="css\reset.css">    
+    <link rel="stylesheet" href="css\login.css">
+    <link rel="stylesheet" href="css\index.css">
+    <link rel="stylesheet" href="css\responsiva.css">    
     <title>Tela de Login:</title>
 </head>
 <body>
      
     <div id="header">
-    <img class="logo" src="..\img\logo3.png">
+    <img class="logo" src="img\logo3.png">
     <p class="titletop"> RH Soluções - Projeto PI II</p>
   <div class="menu">   
   </div>  
@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <a id="back" href="index.html">
                 <button type="button" name="voltar">Voltar</button></a>
             </div></form>
-            <a id="id" href="admin\esqueciSenha.html"><button type="button" name="esqueci">Esqueci minha senha</button></a>
+            <a id="id" href="esqueciSenha.html"><button type="button" name="esqueci">Esqueci minha senha</button></a>
 </div>
       <div id="footer"><p id="copy">&copy; Projeto PI II  </p></div>
 </body>
